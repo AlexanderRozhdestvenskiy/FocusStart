@@ -36,6 +36,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		8911B9A527A449D8004858E3 /* Files */ = {
+			isa = PBXGroup;
+			children = (
+				8915541627A403160006E097 /* Assets.xcassets */,
+				8915541827A403160006E097 /* LaunchScreen.storyboard */,
+				8915541B27A403160006E097 /* Info.plist */,
+			);
+			name = Files;
+			sourceTree = "<group>";
+		};
 		8915540127A403130006E097 = {
 			isa = PBXGroup;
 			children = (
@@ -56,14 +66,20 @@
 		8915540C27A403130006E097 /* FocusStart */ = {
 			isa = PBXGroup;
 			children = (
-				8915540D27A403130006E097 /* AppDelegate.swift */,
-				8915540F27A403130006E097 /* SceneDelegate.swift */,
+				89A3932D27A478050079F234 /* SceneApp */,
 				8915541127A403130006E097 /* ViewController.swift */,
-				8915541627A403160006E097 /* Assets.xcassets */,
-				8915541827A403160006E097 /* LaunchScreen.storyboard */,
-				8915541B27A403160006E097 /* Info.plist */,
+				8911B9A527A449D8004858E3 /* Files */,
 			);
 			path = FocusStart;
+			sourceTree = "<group>";
+		};
+		89A3932D27A478050079F234 /* SceneApp */ = {
+			isa = PBXGroup;
+			children = (
+				8915540F27A403130006E097 /* SceneDelegate.swift */,
+				8915540D27A403130006E097 /* AppDelegate.swift */,
+			);
+			path = SceneApp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
