@@ -63,10 +63,10 @@ class OnboardingViewController: UIViewController {
         pageViewController.dataSource = self
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        view.topAnchor.constraint(equalTo: pageViewController.view.topAnchor).isActive = true
-        view.leadingAnchor.constraint(equalTo: pageViewController.view.leadingAnchor).isActive = true
-        view.trailingAnchor.constraint(equalTo: pageViewController.view.trailingAnchor).isActive = true
-        view.bottomAnchor.constraint(equalTo: pageViewController.view.bottomAnchor).isActive = true
+        pageViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32).isActive = true
+        pageViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32).isActive = true
+        pageViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32).isActive = true
+        pageViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32).isActive = true
         
         pageViewController.setViewControllers([pages.first!], direction: .forward, animated: false, completion: nil)
         currentPage = pages.first!
