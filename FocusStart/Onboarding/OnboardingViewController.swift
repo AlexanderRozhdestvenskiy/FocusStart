@@ -11,19 +11,9 @@ class OnboardingViewController: UIViewController {
     
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
-    var currentPage: UIViewController {
-        didSet {
-            guard let index = pages.firstIndex(of: currentPage) else { return }
-            nextButton.isHidden = index == pages.count - 1
-            backButton.isHidden = index == 0
-            doneButton.isHidden = !(index == pages.count - 1)
-        }
-    }
+    var currentPage: UIViewController
     
     let closeButton = UIButton(type: .system)
-    let nextButton = UIButton(type: .system)
-    let backButton = UIButton(type: .system)
-    let doneButton = UIButton(type: .system)
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         self.pageViewController = UIPageViewController(transitionStyle: .scroll, navigationOrientation: .horizontal, options: nil)
@@ -63,21 +53,26 @@ class OnboardingViewController: UIViewController {
         pageViewController.dataSource = self
         pageViewController.view.translatesAutoresizingMaskIntoConstraints = false
         
-        pageViewController.view.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 32).isActive = true
-        pageViewController.view.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 32).isActive = true
-        pageViewController.view.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -32).isActive = true
-        pageViewController.view.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -32).isActive = true
+        pageViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        pageViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        pageViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        pageViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
         
-        pageViewController.setViewControllers([pages.first!], direction: .forward, animated: false, completion: nil)
+        pageViewController.setViewControllers([pages.first!], direction: .forward, animated: true, completion: nil)
         currentPage = pages.first!
     }
     
     private func style() {
-        
+        closeButton.translatesAutoresizingMaskIntoConstraints = false
+        closeButton.setTitle("Закрыть", for: [])
+        closeButton.addTarget(self, action: #selector(closeTapped), for: .primaryActionTriggered)
     }
     
     private func layout() {
+        view.addSubview(closeButton)
         
+        closeButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16).isActive = true
+        closeButton.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 8).isActive = true
     }
 }
 
@@ -112,5 +107,7 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 }
 
 extension OnboardingViewController {
-    
+    @objc private func closeTapped(_ sender: UIButton) {
+        
+    }
 }
