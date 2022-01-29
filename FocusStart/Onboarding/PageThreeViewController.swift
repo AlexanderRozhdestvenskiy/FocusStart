@@ -42,7 +42,7 @@ class PageThreeViewController: UIViewController {
         back.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32).isActive = true
         back.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true
         
-        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: back.centerXAnchor).isActive = true
+        label.centerYAnchor.constraint(equalTo: back.centerYAnchor).isActive = true
     }
 }

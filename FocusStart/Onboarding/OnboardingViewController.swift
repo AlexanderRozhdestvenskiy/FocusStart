@@ -9,6 +9,8 @@ import UIKit
 
 class OnboardingViewController: UIViewController {
     
+    weak var delegate: OnboardingViewControllerDelegate?
+    
     let pageViewController: UIPageViewController
     var pages = [UIViewController]()
     var currentPage: UIViewController
@@ -108,6 +110,6 @@ extension OnboardingViewController: UIPageViewControllerDataSource {
 
 extension OnboardingViewController {
     @objc private func closeTapped(_ sender: UIButton) {
-        
+        delegate?.didFinishOnboarding()
     }
 }
