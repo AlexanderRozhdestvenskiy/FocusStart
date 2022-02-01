@@ -8,12 +8,12 @@
 import UIKit
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-
+    
     var window: UIWindow?
     
     let onboarding = OnboardingViewController()
     let mainViewController = UINavigationController(rootViewController: MainViewController())
-
+    
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
         guard let windowScene = (scene as? UIWindowScene) else { return }
@@ -46,5 +46,11 @@ extension SceneDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
         DataState.hasOnboarded = false
         setRootViewController(mainViewController)
+    }
+}
+
+extension SceneDelegate {
+    func sceneDidEnterBackground(_ scene: UIScene) {
+        (UIApplication.shared.delegate as? AppDelegate)?.saveContext()
     }
 }
