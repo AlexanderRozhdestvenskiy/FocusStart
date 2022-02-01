@@ -12,7 +12,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var window: UIWindow?
     
     let onboarding = OnboardingViewController()
-    let viewController = UINavigationController(rootViewController: MainViewController())
+    let mainViewController = UINavigationController(rootViewController: MainViewController())
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         
@@ -20,10 +20,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene = windowScene
-        window?.rootViewController = DataState.hasOnboarded ? viewController : onboarding
+        window?.rootViewController = DataState.hasOnboarded ? mainViewController : onboarding
         window?.makeKeyAndVisible()
         
         onboarding.delegate = self
+        mainViewController.navigationBar.prefersLargeTitles = true
     }
 }
 
@@ -37,13 +38,13 @@ extension SceneDelegate {
         
         window.rootViewController = vc
         window.makeKeyAndVisible()
-        UIView.transition(with: window, duration: 0.75, options: .transitionCrossDissolve, animations: nil, completion: nil)
+        UIView.transition(with: window, duration: 0.5, options: .transitionCrossDissolve, animations: nil, completion: nil)
     }
 }
 
 extension SceneDelegate: OnboardingViewControllerDelegate {
     func didFinishOnboarding() {
-        DataState.hasOnboarded = true
-        setRootViewController(viewController)
+        DataState.hasOnboarded = false
+        setRootViewController(mainViewController)
     }
 }

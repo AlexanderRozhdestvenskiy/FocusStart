@@ -25,8 +25,6 @@ class PageTwoViewController: UIViewController {
         back.translatesAutoresizingMaskIntoConstraints = false
         back.backgroundColor = .systemTeal
         back.layer.cornerRadius = 16
-        back.layer.borderWidth = 1
-        back.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.preferredFont(forTextStyle: .largeTitle)

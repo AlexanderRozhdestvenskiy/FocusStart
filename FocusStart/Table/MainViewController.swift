@@ -9,7 +9,7 @@ import UIKit
 
 class MainViewController: UIViewController {
     
-    let games = ["Один", "Два", "Три", "Четыре", "Пять", "Шесть", "Семь", "Восемь", "Девять", "Десять", "Одиннадцать", "Двеннадцать"]
+    let tasks = ["Один", "Два", "Три", "Четыре", "Пять", "Шесть", "Семь", "Восемь", "Девять", "Десять", "Одиннадцать", "Двеннадцать"]
     
     let table = UITableView()
     
@@ -31,6 +31,9 @@ class MainViewController: UIViewController {
         title = "Заметки"
         
         table.translatesAutoresizingMaskIntoConstraints = false
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .plain, target: self, action: #selector(tappedAdd))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(tappedInfo))
     }
     
     private func layout() {
@@ -47,17 +50,28 @@ extension MainViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = UITableViewCell()
-        cell.textLabel?.text = games[indexPath.row]
+        cell.textLabel?.text = tasks[indexPath.row]
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return games.count
+        return tasks.count
     }
 }
 
 extension MainViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
+    }
+}
+
+extension MainViewController {
+    @objc private func tappedAdd(_ sender: UIBarButtonItem) {
+        let nav = UINavigationController(rootViewController: DetailViewController())
+        navigationController?.present(nav, animated: true, completion: nil)
+    }
+    
+    @objc private func tappedInfo(_ sender: UIBarButtonItem) {
+        navigationController?.pushViewController(InfoViewController(), animated: true)
     }
 }
