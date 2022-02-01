@@ -22,13 +22,13 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .systemBackground
         title = "Добавить"
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(tap))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(tap))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Сохранить", style: .plain, target: self, action: #selector(saveTap))
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Отмена", style: .plain, target: self, action: #selector(cancelTap))
         
         textField.translatesAutoresizingMaskIntoConstraints = false
-        textField.placeholder = "   Задача"
-        textField.layer.cornerRadius = 8
+        textField.placeholder = "Задача"
         textField.backgroundColor = .secondarySystemBackground
+        textField.borderStyle = .roundedRect
     }
     
     private func layout() {
@@ -42,7 +42,11 @@ class DetailViewController: UIViewController {
 }
 
 extension DetailViewController {
-    @objc private func tap(_ sender: UIButton) {
+    @objc private func saveTap(_ sender: UIButton) {
+        
+    }
+    
+    @objc private func cancelTap(_ sender: UIButton) {
         
     }
 }

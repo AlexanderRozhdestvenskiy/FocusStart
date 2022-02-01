@@ -23,7 +23,7 @@ class PageOneViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         back.translatesAutoresizingMaskIntoConstraints = false
-        back.backgroundColor = .systemTeal
+        back.backgroundColor = .secondarySystemBackground
         back.layer.cornerRadius = 16
         
         label.translatesAutoresizingMaskIntoConstraints = false
