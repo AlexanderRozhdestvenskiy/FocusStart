@@ -13,6 +13,9 @@
 		8915541A27A403160006E097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8915541827A403160006E097 /* LaunchScreen.storyboard */; };
 		891E28F327A9721C00FD4920 /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 891E28F227A9721C00FD4920 /* InfoView.swift */; };
 		891E293627A9CFA300FD4920 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 891E293427A9CFA300FD4920 /* Model.xcdatamodeld */; };
+		892CDA5727AAA0B300E94FA4 /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892CDA5627AAA0B300E94FA4 /* MainViewCell.swift */; };
+		892CDA5A27AAA4AE00E94FA4 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892CDA5827AAA4AE00E94FA4 /* Task+CoreDataClass.swift */; };
+		892CDA5B27AAA4AE00E94FA4 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892CDA5927AAA4AE00E94FA4 /* Task+CoreDataProperties.swift */; };
 		895378AD27A5A95A00F60901 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895378AC27A5A95A00F60901 /* Protocols.swift */; };
 		895378B027A5AA5B00F60901 /* DataState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895378AF27A5AA5B00F60901 /* DataState.swift */; };
 		895378B227A5B99A00F60901 /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895378B127A5B99A00F60901 /* InfoViewController.swift */; };
@@ -22,8 +25,6 @@
 		89A3933427A485490079F234 /* PageTwoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3933327A485490079F234 /* PageTwoViewController.swift */; };
 		89A3933627A485580079F234 /* PageThreeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89A3933527A485580079F234 /* PageThreeViewController.swift */; };
 		89C8E7F027A58E3F00687EF3 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89C8E7EF27A58E3F00687EF3 /* MainViewController.swift */; };
-		89D3522727A9E7FD006D92F9 /* Task+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D3522427A9E795006D92F9 /* Task+CoreDataClass.swift */; };
-		89D3522827A9E800006D92F9 /* Task+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89D3522527A9E795006D92F9 /* Task+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,9 @@
 		8915541B27A403160006E097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		891E28F227A9721C00FD4920 /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		891E293527A9CFA300FD4920 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		892CDA5627AAA0B300E94FA4 /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		892CDA5827AAA4AE00E94FA4 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
+		892CDA5927AAA4AE00E94FA4 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		8949F6B627A40AD1000AA190 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		895378AC27A5A95A00F60901 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		895378AF27A5AA5B00F60901 /* DataState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataState.swift; sourceTree = "<group>"; };
@@ -45,8 +49,6 @@
 		89A3933327A485490079F234 /* PageTwoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageTwoViewController.swift; sourceTree = "<group>"; };
 		89A3933527A485580079F234 /* PageThreeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageThreeViewController.swift; sourceTree = "<group>"; };
 		89C8E7EF27A58E3F00687EF3 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		89D3522427A9E795006D92F9 /* Task+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataClass.swift"; sourceTree = "<group>"; };
-		89D3522527A9E795006D92F9 /* Task+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Task+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				89C8E7EF27A58E3F00687EF3 /* MainViewController.swift */,
+				892CDA5627AAA0B300E94FA4 /* MainViewCell.swift */,
 			);
 			path = Table;
 			sourceTree = "<group>";
@@ -176,8 +179,8 @@
 		89D3522327A9DD6E006D92F9 /* Task */ = {
 			isa = PBXGroup;
 			children = (
-				89D3522427A9E795006D92F9 /* Task+CoreDataClass.swift */,
-				89D3522527A9E795006D92F9 /* Task+CoreDataProperties.swift */,
+				892CDA5827AAA4AE00E94FA4 /* Task+CoreDataClass.swift */,
+				892CDA5927AAA4AE00E94FA4 /* Task+CoreDataProperties.swift */,
 			);
 			path = Task;
 			sourceTree = "<group>";
@@ -253,11 +256,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				895378B427A5BA3B00F60901 /* DetailViewController.swift in Sources */,
+				892CDA5A27AAA4AE00E94FA4 /* Task+CoreDataClass.swift in Sources */,
 				89A3933227A485380079F234 /* PageOneViewController.swift in Sources */,
-				89D3522727A9E7FD006D92F9 /* Task+CoreDataClass.swift in Sources */,
 				8915540E27A403130006E097 /* AppDelegate.swift in Sources */,
 				89A3933427A485490079F234 /* PageTwoViewController.swift in Sources */,
 				891E28F327A9721C00FD4920 /* InfoView.swift in Sources */,
+				892CDA5B27AAA4AE00E94FA4 /* Task+CoreDataProperties.swift in Sources */,
 				8915541027A403130006E097 /* SceneDelegate.swift in Sources */,
 				895378B227A5B99A00F60901 /* InfoViewController.swift in Sources */,
 				89C8E7F027A58E3F00687EF3 /* MainViewController.swift in Sources */,
@@ -265,7 +269,7 @@
 				89A3933027A483560079F234 /* OnboardingViewController.swift in Sources */,
 				895378B027A5AA5B00F60901 /* DataState.swift in Sources */,
 				891E293627A9CFA300FD4920 /* Model.xcdatamodeld in Sources */,
-				89D3522827A9E800006D92F9 /* Task+CoreDataProperties.swift in Sources */,
+				892CDA5727AAA0B300E94FA4 /* MainViewCell.swift in Sources */,
 				895378AD27A5A95A00F60901 /* Protocols.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -28,7 +28,8 @@ class MainViewController: UIViewController {
         table.delegate = self
         table.dataSource = self
         
-        table.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
+        table.register(MainViewCell.self, forCellReuseIdentifier: MainViewCell.reuseID)
+        table.rowHeight = MainViewCell.rowHeight
         
         getAllTasks()
     }
@@ -38,13 +39,23 @@ class MainViewController: UIViewController {
         title = "Заметки"
         
         table.translatesAutoresizingMaskIntoConstraints = false
+        table.backgroundColor = .systemBackground
         
         label.translatesAutoresizingMaskIntoConstraints = false
         label.text = "Список пуст"
         label.font = UIFont.preferredFont(forTextStyle: .body)
         
-        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "plus.circle"), style: .plain, target: self, action: #selector(tappedAdd))
-        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"), style: .plain, target: self, action: #selector(tappedInfo))
+        navigationItem.rightBarButtonItems = [
+            UIBarButtonItem(image: UIImage(systemName: "plus.circle"),
+                            style: .plain, target: self,
+                            action: #selector(tappedAdd)),
+            UIBarButtonItem(image: UIImage(systemName: "plus"),
+                            style: .plain, target: self,
+                            action: #selector(tappedEdit))
+        ]
+        navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+                                                           style: .plain, target: self,
+                                                           action: #selector(tappedInfo))
     }
     
     private func layout() {
@@ -61,7 +72,7 @@ class MainViewController: UIViewController {
     }
 }
 
-    // MARK: - Data Source
+// MARK: - Data Source
 
 extension MainViewController: UITableViewDataSource {
     
@@ -70,14 +81,17 @@ extension MainViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        guard !tasks.isEmpty else { return UITableViewCell() }
+        
+        let cell = table.dequeueReusableCell(withIdentifier: MainViewCell.reuseID, for: indexPath) as! MainViewCell
         let task = tasks[indexPath.row]
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-        cell.textLabel?.text = task.title
+        cell.configure(task: task)
         return cell
     }
 }
 
-    // MARK: - Delegate
+// MARK: - Delegate
 
 extension MainViewController: UITableViewDelegate {
     
@@ -85,7 +99,7 @@ extension MainViewController: UITableViewDelegate {
         tableView.deselectRow(at: indexPath, animated: true)
         let task = tasks[indexPath.row]
         
-        let sheet = UIAlertController(title: "Изменить", message: nil, preferredStyle: .actionSheet)
+        let sheet = UIAlertController(title: "Выберите действие", message: nil, preferredStyle: .actionSheet)
         
         sheet.addAction(UIAlertAction(title: "Отмена", style: .cancel, handler: nil))
         sheet.addAction(UIAlertAction(title: "Изменить", style: .default, handler: { _ in
@@ -106,13 +120,27 @@ extension MainViewController: UITableViewDelegate {
         sheet.addAction(UIAlertAction(title: "Удалить", style: .destructive, handler: { [weak self] _ in
             self?.deleteTasks(task: task)
         }))
-            
+        
         
         present(sheet, animated: true)
     }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        let task = tasks[indexPath.row]
+        let trash = UIContextualAction(style: .destructive, title: "Удалить") { [weak self] (action, view, completionHandler) in
+            self?.deleteTasks(task: task)
+            completionHandler(true)
+        }
+        trash.backgroundColor = .systemRed
+        
+        let configuration = UISwipeActionsConfiguration(actions: [trash])
+        configuration.performsFirstActionWithFullSwipe = false
+
+        return configuration
+    }
 }
 
-    // MARK: - Action
+// MARK: - Action
 
 extension MainViewController {
     @objc private func tappedAdd(_ sender: UIBarButtonItem) {
@@ -131,12 +159,17 @@ extension MainViewController {
         present(alert, animated: true)
     }
     
+    @objc private func tappedEdit(_ sender: UIBarButtonItem) {
+        let nav = UINavigationController(rootViewController: DetailViewController())
+        navigationController?.present(nav, animated: true, completion: nil)
+    }
+    
     @objc private func tappedInfo(_ sender: UIBarButtonItem) {
         navigationController?.pushViewController(InfoViewController(), animated: true)
     }
 }
 
-    // MARK: - Core Data
+// MARK: - Core Data
 
 extension MainViewController {
     
@@ -162,7 +195,7 @@ extension MainViewController {
     private func createTasks(title: String) {
         let newTask = Task(context: contex)
         newTask.title = title
-        newTask.date = Date()
+        newTask.isActive = false
         
         do {
             try contex.save()
