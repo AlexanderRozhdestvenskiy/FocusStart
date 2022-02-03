@@ -52,7 +52,7 @@ class MainViewCell: UITableViewCell {
         buttonActive.heightAnchor.constraint(equalToConstant: 32).isActive = true
         buttonActive.widthAnchor.constraint(equalToConstant: 32).isActive = true
         buttonActive.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-        buttonActive.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 16).isActive = true
+        buttonActive.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 56).isActive = true
         
         labelTask.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
         labelTask.leadingAnchor.constraint(equalTo: buttonActive.trailingAnchor, constant: 16).isActive = true
