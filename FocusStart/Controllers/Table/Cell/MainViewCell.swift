@@ -34,7 +34,7 @@ class MainViewCell: UITableViewCell {
         buttonActive.translatesAutoresizingMaskIntoConstraints = false
         buttonActive.layer.cornerRadius = 16
         buttonActive.layer.borderWidth = 2
-        buttonActive.layer.borderColor = CGColor(red: 0, green: 0, blue: 0, alpha: 1)
+        buttonActive.layer.borderColor = CGColor(red: 0.5, green: 0.5, blue: 0.5, alpha: 1)
         buttonActive.addTarget(self, action: #selector(buttonTapped), for: .touchUpInside)
         
         labelTask.translatesAutoresizingMaskIntoConstraints = false

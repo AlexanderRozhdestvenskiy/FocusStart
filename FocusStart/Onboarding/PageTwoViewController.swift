@@ -23,12 +23,15 @@ class PageTwoViewController: UIViewController {
         view.backgroundColor = .systemBackground
         
         back.translatesAutoresizingMaskIntoConstraints = false
-        back.backgroundColor = .secondarySystemBackground
+        back.backgroundColor = .systemTeal
         back.layer.cornerRadius = 16
         
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.preferredFont(forTextStyle: .largeTitle)
-        label.text = "Второй"
+        label.font = UIFont.preferredFont(forTextStyle: .title3)
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.textAlignment = .center
+        label.text = "Неважно, хотите ли вы повысить свою продуктивность, прекратить переживать, что о чем-то забыли, или просто освободить свою голову и немного отдохнуть - с приложением Заметки вы легко спланируете день и научитесь управлять своей жизнью."
     }
     
     private func layout() {
@@ -40,7 +43,9 @@ class PageTwoViewController: UIViewController {
         back.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -32).isActive = true
         back.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -32).isActive = true
         
-        label.centerXAnchor.constraint(equalTo: back.centerXAnchor).isActive = true
-        label.centerYAnchor.constraint(equalTo: back.centerYAnchor).isActive = true
+        label.leadingAnchor.constraint(equalTo: back.leadingAnchor, constant: 16).isActive = true
+        label.trailingAnchor.constraint(equalTo: back.trailingAnchor, constant: -16).isActive = true
+        label.topAnchor.constraint(equalTo: back.topAnchor, constant: 16).isActive = true
+        label.bottomAnchor.constraint(equalTo: back.bottomAnchor, constant: -16).isActive = true
     }
 }

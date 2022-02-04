@@ -63,7 +63,6 @@ class MainViewController: UIViewController {
         addButton.target = self
         addButton.action = #selector(tappedAdd)
         
-        navigationItem.rightBarButtonItems = [addButton, editButton]
         navigationItem.leftBarButtonItem = infoButton
     }
     

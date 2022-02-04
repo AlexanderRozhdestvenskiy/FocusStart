@@ -25,6 +25,8 @@ extension MainViewController {
         } catch {
             // error
         }
+        
+        navigationItem.rightBarButtonItems = tasks.isEmpty ? [addButton] : [addButton, editButton]
     }
     
     func createTasks(title: String) {
