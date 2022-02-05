@@ -64,7 +64,6 @@ class MainViewCell: UITableViewCell {
         sender.backgroundColor = colorChange ? .systemGreen : .systemBackground
         sender.layer.cornerRadius = colorChange ? 8 : 16
     }
-    
 }
 
 extension MainViewCell {
